@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  web:
+    container_name: suyogya-web
+    build:
+      context: .
+      target: production
+    ports:
+      - "8080:80"
+    restart: always
+    environment:
+      - VITE_API_URL=https://api.suyogya.local/v1
+      - VITE_APP_ENV=production
