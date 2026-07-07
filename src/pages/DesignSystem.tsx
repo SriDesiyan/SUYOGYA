@@ -30,10 +30,12 @@ import {
   Dropdown,
   EmptyState,
   Eyebrow,
+  GlassPanel,
   Heading,
   Input,
   LineChart,
   LoadingOverlay,
+  Notification,
   PasswordInput,
   Progress,
   ProgressRing,
@@ -425,6 +427,121 @@ export default function DesignSystem() {
             <Button variant="subtle" onClick={() => toast.success('Saved', 'Changes committed to audit log.')}>
               Fire toast
             </Button>
+          </div>
+        </Section>
+
+        <Section title="Glass Panels & Spatial Layers" id="glass-panels">
+          <div className="grid gap-6 md:grid-cols-2">
+            <GlassPanel variant="glass" padding="md" interactive className="flex flex-col gap-2">
+              <Badge variant="brand" className="w-fit">Standard Glass</Badge>
+              <h4 className="font-display font-semibold text-content text-base mt-2">Frosted Glass Panel</h4>
+              <p className="text-sm text-content-muted">
+                Transparent canvas filter using 20px saturate blur. Used for content blocks resting on gradient background meshes.
+              </p>
+            </GlassPanel>
+            <GlassPanel variant="glass-strong" padding="md" interactive className="flex flex-col gap-2">
+              <Badge variant="success" className="w-fit">Strong Glass</Badge>
+              <h4 className="font-display font-semibold text-content text-base mt-2">Strong Glass Panel</h4>
+              <p className="text-sm text-content-muted">
+                Denser frosted layer using 28px saturate blur. Used for slide-out drawers, context menus, and navigation shells.
+              </p>
+            </GlassPanel>
+          </div>
+        </Section>
+
+        <Section title="Inline Notifications & Banners" id="notifications">
+          <div className="grid gap-4">
+            <Notification
+              variant="info"
+              title="System Upgrade Pending"
+              description="A new digital advisory model is scheduled to deploy at 04:00 IST."
+            />
+            <Notification
+              variant="success"
+              title="AUM Balance Synchronized"
+              description="Successfully indexed wealth pools from Central Database API."
+            />
+            <Notification
+              variant="warning"
+              title="KYC Verification Overdue"
+              description="Relationship manager review is requested for selected HNI accounts."
+            />
+            <Notification
+              variant="danger"
+              title="Signal Link Interrupted"
+              description="Axios interface returned 502 Bad Gateway while pulling signal stream."
+            />
+          </div>
+        </Section>
+
+        <Section title="Layout & Shell Demos" id="shell">
+          <div className="grid gap-6 md:grid-cols-2">
+            <div className="rounded-2xl border border-line bg-surface/50 p-4">
+              <Text tone="muted" size="xs" className="mb-2 uppercase tracking-wider font-semibold">Mock Navbar Shell</Text>
+              <div className="flex items-center justify-between rounded-xl border border-line bg-surface/80 p-3 shadow-elev-1">
+                <div className="flex items-center gap-2">
+                  <div className="h-6 w-6 rounded-lg bg-sbi-gradient flex items-center justify-center"><Sparkles className="h-3 w-3 text-white" /></div>
+                  <span className="font-display text-xs font-bold text-content">SUYOGYA</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-success animate-ping" />
+                  <span className="text-[10px] font-semibold text-content-muted">ONLINE</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-line bg-surface/50 p-4">
+              <Text tone="muted" size="xs" className="mb-2 uppercase tracking-wider font-semibold">Mock Sidebar Drawer</Text>
+              <div className="flex flex-col gap-1.5 rounded-xl border border-line bg-surface/85 p-3 shadow-elev-1 w-44">
+                <span className="text-[9px] font-bold text-content-subtle uppercase px-2">Core Engine</span>
+                <div className="flex items-center gap-2 rounded-lg bg-sbi-50 px-2 py-1 text-2xs font-semibold text-sbi-600 dark:bg-sbi-950/20 dark:text-sbi-400">
+                  <Activity className="h-3.5 w-3.5" />
+                  <span>Dashboard</span>
+                </div>
+                <div className="flex items-center gap-2 px-2 py-1 text-2xs font-medium text-content-muted">
+                  <Layers className="h-3.5 w-3.5" />
+                  <span>Signal Stream</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        <Section title="Theme Tokens & Foundations" id="tokens">
+          <div className="space-y-6">
+            <div>
+              <Text tone="muted" size="xs" className="mb-2 uppercase tracking-wider font-semibold">Brand Color Ramp (SBI Blue & Ink)</Text>
+              <div className="grid grid-cols-5 gap-2 text-center text-3xs font-mono">
+                <div className="h-10 rounded bg-[#eef4ff] text-sbi-955 flex items-center justify-center">50</div>
+                <div className="h-10 rounded bg-[#bcd3ff] text-sbi-955 flex items-center justify-center">200</div>
+                <div className="h-10 rounded bg-[#2f6bf5] text-white flex items-center justify-center">500</div>
+                <div className="h-10 rounded bg-[#163fad] text-white flex items-center justify-center">700</div>
+                <div className="h-10 rounded bg-[#0f1e45] text-white flex items-center justify-center">950</div>
+              </div>
+            </div>
+
+            <div>
+              <Text tone="muted" size="xs" className="mb-2 uppercase tracking-wider font-semibold">Gradients & Shadows</Text>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="h-12 rounded-xl bg-sbi-gradient flex items-center justify-center text-xs font-bold text-white">
+                  SBI Gradient
+                </div>
+                <div className="h-12 rounded-xl bg-surface border border-line shadow-glow-sbi flex items-center justify-center text-xs font-bold text-sbi-600">
+                  Shadow Glow SBI
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <Text tone="muted" size="xs" className="mb-2 uppercase tracking-wider font-semibold">Spacing & Scale</Text>
+              <div className="flex items-end gap-3 h-14 bg-surface-raised/40 p-3 rounded-xl border border-line">
+                <div className="w-1 bg-sbi-500 rounded" style={{ height: '4px' }} title="xs: 4px" />
+                <div className="w-2 bg-sbi-500 rounded" style={{ height: '8px' }} title="sm: 8px" />
+                <div className="w-4 bg-sbi-500 rounded" style={{ height: '16px' }} title="md: 16px" />
+                <div className="w-6 bg-sbi-500 rounded" style={{ height: '24px' }} title="lg: 24px" />
+                <div className="w-8 bg-sbi-500 rounded" style={{ height: '32px' }} title="xl: 32px" />
+              </div>
+            </div>
           </div>
         </Section>
 
