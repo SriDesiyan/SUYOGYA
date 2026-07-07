@@ -5,6 +5,13 @@ import { Sidebar } from '@/components/layout/Sidebar'
 import Landing from '@/pages/Landing'
 import Dashboard from '@/pages/Dashboard'
 import DesignSystem from '@/pages/DesignSystem'
+import Profile from '@/pages/Profile'
+import Login from '@/pages/auth/Login'
+import Register from '@/pages/auth/Register'
+import ForgotPassword from '@/pages/auth/ForgotPassword'
+import OTP from '@/pages/auth/OTP'
+import RoleSelection from '@/pages/auth/RoleSelection'
+import ProtectedRoute from '@/components/auth/ProtectedRoute'
 import { Card, CardTitle, Button } from '@/components/ui'
 import { Construction } from 'lucide-react'
 
@@ -37,13 +44,35 @@ function LayoutWrapper() {
         <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="flex-1 md:pl-64 p-6 w-full max-w-7xl mx-auto transition-all duration-300">
           <Routes>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/design-system" element={<DesignSystem />} />
-            <Route path="/signals" element={<ComingSoon title="Signal Stream" />} />
-            <Route path="/clients" element={<ComingSoon title="Client Analytics" />} />
-            <Route path="/api-integrations" element={<ComingSoon title="API Integrations" />} />
-            <Route path="/transactions" element={<ComingSoon title="Transactions Ledger" />} />
-            <Route path="/settings" element={<ComingSoon title="System Settings" />} />
+            <Route
+              path="/dashboard"
+              element={
+                <ProtectedRoute>
+                  <Dashboard />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/profile"
+              element={
+                <ProtectedRoute>
+                  <Profile />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/design-system"
+              element={
+                <ProtectedRoute>
+                  <DesignSystem />
+                </ProtectedRoute>
+              }
+            />
+            <Route path="/signals" element={<ProtectedRoute><ComingSoon title="Signal Stream" /></ProtectedRoute>} />
+            <Route path="/clients" element={<ProtectedRoute><ComingSoon title="Client Analytics" /></ProtectedRoute>} />
+            <Route path="/api-integrations" element={<ProtectedRoute><ComingSoon title="API Integrations" /></ProtectedRoute>} />
+            <Route path="/transactions" element={<ProtectedRoute><ComingSoon title="Transactions Ledger" /></ProtectedRoute>} />
+            <Route path="/settings" element={<ProtectedRoute><ComingSoon title="System Settings" /></ProtectedRoute>} />
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </main>
@@ -57,6 +86,11 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/forgot-password" element={<ForgotPassword />} />
+        <Route path="/otp" element={<OTP />} />
+        <Route path="/role-selection" element={<RoleSelection />} />
         <Route path="/*" element={<LayoutWrapper />} />
       </Routes>
     </Router>

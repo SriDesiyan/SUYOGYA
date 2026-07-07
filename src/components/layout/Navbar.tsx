@@ -2,6 +2,7 @@ import { useTheme } from '@/providers/ThemeProvider'
 import { Button, Avatar, StatusDot } from '@/components/ui'
 import { Sun, Moon, Bell, Command, Search, Sparkles } from 'lucide-react'
 import { Link } from 'react-router-dom'
+import { useAuth } from '@/providers/AuthContext'
 
 interface NavbarProps {
   onMenuToggle?: () => void
@@ -9,6 +10,7 @@ interface NavbarProps {
 
 export function Navbar({ onMenuToggle }: NavbarProps) {
   const { theme, toggleTheme } = useTheme()
+  const { user } = useAuth()
 
   return (
     <header className="glass sticky top-0 z-50 w-full border-b border-line px-6 py-3 transition-colors duration-300">
@@ -87,13 +89,13 @@ export function Navbar({ onMenuToggle }: NavbarProps) {
 
           <span className="h-5 w-px bg-line" />
 
-          <div className="flex items-center gap-2">
-            <Avatar name="Sri Desiyan" size="sm" />
+          <Link to="/profile" className="flex items-center gap-2 hover:opacity-85 transition-opacity">
+            <Avatar name={user?.name || 'User'} size="sm" />
             <div className="hidden text-left lg:block">
-              <p className="text-xs font-semibold text-content leading-tight">Sri Desiyan</p>
-              <p className="text-3xs text-content-subtle leading-none">Senior Administrator</p>
+              <p className="text-xs font-semibold text-content leading-tight">{user?.name || 'Authorized User'}</p>
+              <p className="text-3xs text-content-subtle leading-none">{user?.role || 'Executive'}</p>
             </div>
-          </div>
+          </Link>
         </div>
       </div>
     </header>
