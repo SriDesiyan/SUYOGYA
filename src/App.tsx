@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate, Link } from 'react-router-dom'
 import { Navbar } from '@/components/layout/Navbar'
 import { Sidebar } from '@/components/layout/Sidebar'
+import Landing from '@/pages/Landing'
 import Dashboard from '@/pages/Dashboard'
 import DesignSystem from '@/pages/DesignSystem'
 import { Card, CardTitle, Button } from '@/components/ui'
@@ -18,7 +19,7 @@ function ComingSoon({ title }: { title: string }) {
         <p className="text-sm text-content-muted mb-6">
           The SUYOGYA engagement modules are currently being synchronized for this view. Dashboard panels remain operational.
         </p>
-        <Link to="/">
+        <Link to="/dashboard">
           <Button variant="primary">Return to Command Center</Button>
         </Link>
       </Card>
@@ -36,14 +37,14 @@ function LayoutWrapper() {
         <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
         <main className="flex-1 md:pl-64 p-6 w-full max-w-7xl mx-auto transition-all duration-300">
           <Routes>
-            <Route path="/" element={<Dashboard />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/design-system" element={<DesignSystem />} />
             <Route path="/signals" element={<ComingSoon title="Signal Stream" />} />
             <Route path="/clients" element={<ComingSoon title="Client Analytics" />} />
             <Route path="/api-integrations" element={<ComingSoon title="API Integrations" />} />
             <Route path="/transactions" element={<ComingSoon title="Transactions Ledger" />} />
             <Route path="/settings" element={<ComingSoon title="System Settings" />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </main>
       </div>
@@ -54,7 +55,10 @@ function LayoutWrapper() {
 export default function App() {
   return (
     <Router>
-      <LayoutWrapper />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/*" element={<LayoutWrapper />} />
+      </Routes>
     </Router>
   )
 }
