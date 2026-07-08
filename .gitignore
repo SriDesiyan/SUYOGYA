@@ -37,3 +37,10 @@ Thumbs.db
 .eslintcache
 *.tsbuildinfo
 .vite
+
+# Python Compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/

@@ -1,6 +1,32 @@
 version: '3.8'
 
 services:
+  db:
+    image: postgres:15-alpine
+    container_name: suyogya-db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: suyogya
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  backend:
+    build:
+      context: ./backend
+    container_name: suyogya-backend
+    restart: always
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/suyogya
+      - JWT_SECRET=super-secret-sbi-suyogya-key-9042
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+
   web:
     container_name: suyogya-web
     build:
@@ -10,5 +36,10 @@ services:
       - "8080:80"
     restart: always
     environment:
-      - VITE_API_URL=https://api.suyogya.local/v1
+      - VITE_API_URL=http://localhost:8000
       - VITE_APP_ENV=production
+    depends_on:
+      - backend
+
+volumes:
+  pgdata:
