@@ -14,6 +14,7 @@ import {
   Network,
   Shield,
   TrendingUp,
+  Cpu,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -46,6 +47,7 @@ const menuItems = [
     title: 'Management',
     items: [
       { label: 'Compliance Center', icon: Shield, path: '/compliance' },
+      { label: 'System Monitoring', icon: Cpu, path: '/monitoring' },
       { label: 'System Settings', icon: Settings, path: '/settings' },
     ],
   },

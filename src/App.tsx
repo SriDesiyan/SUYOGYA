@@ -14,6 +14,7 @@ import Recommendations from '@/pages/Recommendations'
 import Channels from '@/pages/Channels'
 import Compliance from '@/pages/Compliance'
 import Analytics from '@/pages/Analytics'
+import Monitoring from '@/pages/Monitoring'
 import Login from '@/pages/auth/Login'
 import Register from '@/pages/auth/Register'
 import ForgotPassword from '@/pages/auth/ForgotPassword'
@@ -84,6 +85,7 @@ function LayoutWrapper() {
             <Route path="/channels" element={<ProtectedRoute><Channels /></ProtectedRoute>} />
             <Route path="/compliance" element={<ProtectedRoute><Compliance /></ProtectedRoute>} />
             <Route path="/analytics" element={<ProtectedRoute><Analytics /></ProtectedRoute>} />
+            <Route path="/monitoring" element={<ProtectedRoute><Monitoring /></ProtectedRoute>} />
             <Route path="/settings" element={<ProtectedRoute><ComingSoon title="System Settings" /></ProtectedRoute>} />
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
