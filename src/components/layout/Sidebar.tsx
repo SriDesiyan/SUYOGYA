@@ -10,6 +10,7 @@ import {
   ArrowLeftRight,
   LogOut,
   Info,
+  Sparkles,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -25,6 +26,7 @@ const menuItems = [
       { label: 'Dashboard', icon: LayoutDashboard, path: '/' },
       { label: 'Signal Stream', icon: Zap, path: '/signals' },
       { label: 'Client Analytics', icon: Users, path: '/clients' },
+      { label: 'Recommendations', icon: Sparkles, path: '/recommendations' },
     ],
   },
   {
