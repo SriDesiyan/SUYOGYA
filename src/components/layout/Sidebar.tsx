@@ -32,7 +32,7 @@ const menuItems = [
     items: [
       { label: 'Design System', icon: Boxes, path: '/design-system' },
       { label: 'Evidence Explorer', icon: Database, path: '/evidence' },
-      { label: 'Transactions', icon: ArrowLeftRight, path: '/transactions' },
+      { label: 'Reasoning Engine', icon: ArrowLeftRight, path: '/reasoning' },
     ],
   },
   {
