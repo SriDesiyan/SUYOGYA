@@ -13,6 +13,7 @@ import {
   Sparkles,
   Network,
   Shield,
+  TrendingUp,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -29,6 +30,7 @@ const menuItems = [
       { label: 'Signal Stream', icon: Zap, path: '/signals' },
       { label: 'Client Analytics', icon: Users, path: '/clients' },
       { label: 'Recommendations', icon: Sparkles, path: '/recommendations' },
+      { label: 'Analytics Platform', icon: TrendingUp, path: '/analytics' },
     ],
   },
   {
