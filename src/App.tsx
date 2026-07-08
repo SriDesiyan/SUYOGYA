@@ -8,6 +8,7 @@ import DesignSystem from '@/pages/DesignSystem'
 import Profile from '@/pages/Profile'
 import Clients from '@/pages/Clients'
 import Readiness from '@/pages/Readiness'
+import Evidence from '@/pages/Evidence'
 import Login from '@/pages/auth/Login'
 import Register from '@/pages/auth/Register'
 import ForgotPassword from '@/pages/auth/ForgotPassword'
@@ -72,7 +73,7 @@ function LayoutWrapper() {
             />
             <Route path="/signals" element={<ProtectedRoute><Readiness /></ProtectedRoute>} />
             <Route path="/clients" element={<ProtectedRoute><Clients /></ProtectedRoute>} />
-            <Route path="/api-integrations" element={<ProtectedRoute><ComingSoon title="API Integrations" /></ProtectedRoute>} />
+            <Route path="/evidence" element={<ProtectedRoute><Evidence /></ProtectedRoute>} />
             <Route path="/transactions" element={<ProtectedRoute><ComingSoon title="Transactions Ledger" /></ProtectedRoute>} />
             <Route path="/settings" element={<ProtectedRoute><ComingSoon title="System Settings" /></ProtectedRoute>} />
             <Route path="*" element={<Navigate to="/dashboard" replace />} />

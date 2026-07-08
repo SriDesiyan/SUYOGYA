@@ -31,7 +31,7 @@ const menuItems = [
     title: 'Platform',
     items: [
       { label: 'Design System', icon: Boxes, path: '/design-system' },
-      { label: 'API Integrations', icon: Database, path: '/api-integrations' },
+      { label: 'Evidence Explorer', icon: Database, path: '/evidence' },
       { label: 'Transactions', icon: ArrowLeftRight, path: '/transactions' },
     ],
   },
