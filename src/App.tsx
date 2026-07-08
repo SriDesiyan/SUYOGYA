@@ -7,6 +7,7 @@ import Dashboard from '@/pages/Dashboard'
 import DesignSystem from '@/pages/DesignSystem'
 import Profile from '@/pages/Profile'
 import Clients from '@/pages/Clients'
+import Readiness from '@/pages/Readiness'
 import Login from '@/pages/auth/Login'
 import Register from '@/pages/auth/Register'
 import ForgotPassword from '@/pages/auth/ForgotPassword'
@@ -69,7 +70,7 @@ function LayoutWrapper() {
                 </ProtectedRoute>
               }
             />
-            <Route path="/signals" element={<ProtectedRoute><ComingSoon title="Signal Stream" /></ProtectedRoute>} />
+            <Route path="/signals" element={<ProtectedRoute><Readiness /></ProtectedRoute>} />
             <Route path="/clients" element={<ProtectedRoute><Clients /></ProtectedRoute>} />
             <Route path="/api-integrations" element={<ProtectedRoute><ComingSoon title="API Integrations" /></ProtectedRoute>} />
             <Route path="/transactions" element={<ProtectedRoute><ComingSoon title="Transactions Ledger" /></ProtectedRoute>} />
