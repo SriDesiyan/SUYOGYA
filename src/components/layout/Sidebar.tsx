@@ -11,6 +11,7 @@ import {
   LogOut,
   Info,
   Sparkles,
+  Network,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -35,6 +36,7 @@ const menuItems = [
       { label: 'Design System', icon: Boxes, path: '/design-system' },
       { label: 'Evidence Explorer', icon: Database, path: '/evidence' },
       { label: 'Reasoning Engine', icon: ArrowLeftRight, path: '/reasoning' },
+      { label: 'Channel Intelligence', icon: Network, path: '/channels' },
     ],
   },
   {

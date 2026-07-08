@@ -11,6 +11,7 @@ import Readiness from '@/pages/Readiness'
 import Evidence from '@/pages/Evidence'
 import Reasoning from '@/pages/Reasoning'
 import Recommendations from '@/pages/Recommendations'
+import Channels from '@/pages/Channels'
 import Login from '@/pages/auth/Login'
 import Register from '@/pages/auth/Register'
 import ForgotPassword from '@/pages/auth/ForgotPassword'
@@ -78,6 +79,7 @@ function LayoutWrapper() {
             <Route path="/evidence" element={<ProtectedRoute><Evidence /></ProtectedRoute>} />
             <Route path="/reasoning" element={<ProtectedRoute><Reasoning /></ProtectedRoute>} />
             <Route path="/recommendations" element={<ProtectedRoute><Recommendations /></ProtectedRoute>} />
+            <Route path="/channels" element={<ProtectedRoute><Channels /></ProtectedRoute>} />
             <Route path="/settings" element={<ProtectedRoute><ComingSoon title="System Settings" /></ProtectedRoute>} />
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
